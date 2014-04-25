@@ -72,7 +72,8 @@ The resulting table has columns as below
 * Activity_Code 
 * Activity_Name 
 * Subject_Number 
-* tBodyAcc.mean...X tBodyAcc.mean...Y
+* tBodyAcc.mean...X 
+* tBodyAcc.mean...Y
 * .......all other measurement variables
 
 ```{r}
@@ -182,7 +183,7 @@ Mean_STD_Data = Final_dataset_v1[ , col_in_scope]
 
 The Mean_STD_Data contains the activity and subject details along with measurements of mean and standard deviation.
 
-The above dataset has 82 columns. The first 3 columns are for Activity Code, Activity Label and Subject Name. The remaining 79 columns are measurements.
+The above dataset has 82 columns. The first 3 columns are for Activity Code, Activity Label and Subject Number. The remaining 79 columns are measurements.
 
 ```{r}
 dim(Mean_STD_Data)
@@ -250,6 +251,13 @@ Data_Cast[1:12,1:5]
 10              2             4            SITTING         0.2770874      -0.015687994
 11              2             5           STANDING         0.2779115      -0.018420827
 12              2             6             LAYING         0.2813734      -0.018158740
+```
+
+It has 180 rows (30 Subjects * 6 activities)
+
+```{r}
+> dim(Data_Cast)
+[1] 180  82
 ```
 
 ### Writing Tidy Data to Disk
