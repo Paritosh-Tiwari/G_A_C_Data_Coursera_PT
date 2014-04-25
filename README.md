@@ -5,7 +5,7 @@ This repository has been created as part of the Mini-Project for completion of C
 
 Only a single script has been used for performing the tasks required as per the Project.
 
-Comments are included in the scripts for each line of code to explain the purpose of using the code and the expected output.
+Comments are included in the scripts for each line of code to explain the purpose of using the code and the expected output. Additionally, the CodeBook explains the logic used for completing the tasks and in some cases, the reason for using specific R functions.
 
 ### Script Considerations
 The script was written on R Studio. Hence instead of <- symbol, "=" was used. Both are equivalent in R Studio. However, if you are executing the script in base R, then you will have to change all the "=" symbols to <-.
