@@ -91,7 +91,7 @@ x_test_act_sub[1:5,1:5]
 
 ### Importing Training Dataset
 
-Exactly the same steps as above were performed to import the training data set. The names were changes from test to train. The result is the x_train_act_sub dataset with the columns same as above.
+Exactly the same steps as above were performed to import the training data set. The names were changed from test to train. The result is the x_train_act_sub dataset with the columns same as above.
 
 ```{r}
 subject_train = read.table("UCI HAR Dataset/train/subject_train.txt", col.names = "Subject_Number")
@@ -113,7 +113,7 @@ Since both dataset have exactly the same column names and ordering, both dataset
 Final_dataset_v1 = rbind(x_train_act_sub,x_test_act_sub)
 ```
 
-The total number of rows in the resulting dataset were sum of rows of training and test dataset. The three extra columns are for Activity_Code, Activity_Label and Subject_Name.
+The total number of rows in the resulting dataset were sum of rows of training and test dataset. The three extra columns are for Activity_Code, Activity_Name and Subject_Name.
 
 ```{r}
 > dim(x_test)
@@ -156,7 +156,7 @@ mean_col = grep("mean",column_names)
 std_col = grep("std",column_names)
 ```
 
-Now created a vector of all the columns which are required for the final tidy dataset, Also included the first 3 columns for Activity_Code, Activity_Label and Subject_Number.
+Now created a vector of all the columns which are required for the final tidy dataset, Also included the first 3 columns for Activity_Code, Activity_Name and Subject_Number.
 
 ```{r}
 col_in_scope = c(1:3,mean_col,std_col)
@@ -183,7 +183,7 @@ Mean_STD_Data = Final_dataset_v1[ , col_in_scope]
 
 The Mean_STD_Data contains the activity and subject details along with measurements of mean and standard deviation.
 
-The above dataset has 82 columns. The first 3 columns are for Activity Code, Activity Label and Subject Number. The remaining 79 columns are measurements.
+The above dataset has 82 columns. The first 3 columns are for Activity Code, Activity Name and Subject Number. The remaining 79 columns are measurements.
 
 ```{r}
 dim(Mean_STD_Data)
@@ -206,7 +206,7 @@ The final requirements of the project is to creates a second, independent tidy d
 
 Melt and Cast functions in R were used to performed this task.
 
-First the dataset was melted using the first 3 columns (Activity_Code, Activity_Label and Subject_Number) as ID and all other variables as measures.
+First the dataset was melted using the first 3 columns (Activity_Code, Activity_Name and Subject_Number) as ID and all other variables as measures.
 
 ```{r}
 Data_Melt = melt(Mean_STD_Data, id = c(1:3),measure.vars = c(4:82))
